@@ -7,7 +7,7 @@ public class HelicopterController : MonoBehaviour
 {
 	public static HelicopterController helicopterInstance;
 
-	public int speed;
+	public float speed;
 	private bool isClipFlyPlaying;
 
 	public Rigidbody2D rbHelicopter;
@@ -23,7 +23,7 @@ public class HelicopterController : MonoBehaviour
 	private Button instructionButton;
 
 
-	private bool isAlive, didFlap, isReady;
+	public bool isAlive, didFlap, isReady;
 
 	public bool isRespawn;
 

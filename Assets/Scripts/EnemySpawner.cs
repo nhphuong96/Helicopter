@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField]
 	private GameObject enemyRespawn;
 	public static bool isSpawning = false;
+
+	public static bool flag = false;
 	// Use this for initialization
 	void Start ()
 	{
@@ -32,6 +34,8 @@ public class EnemySpawner : MonoBehaviour
 		temp.y = Random.Range (-2.0f, 3.5f);
 		temp.x = this.transform.position.x;
 		Instantiate (enemyRespawn, temp, Quaternion.identity);
-		StartCoroutine (Spawner ());
+		if (flag == true) {
+			StartCoroutine (Spawner ());
+		}
 	}
 }
