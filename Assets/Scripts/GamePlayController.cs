@@ -16,7 +16,7 @@ public class GamePlayController : MonoBehaviour
 	private static int bestScore;
 
 	[SerializeField]
-	private Button instructionButton, continueButton;
+	private Button instructionButton;
 
 	[SerializeField]
 	private Text scoreText, bestScoreText, gameOverText;
@@ -103,6 +103,7 @@ public class GamePlayController : MonoBehaviour
 			isUpLevel = true;
 			EnemySpawner.flag = false;
 			rate = 2.2f;
+			score++;
 			StartCoroutine (upLevel ("Level 6"));
 		} else if (score == 9500) {
 			isUpLevel = true;
@@ -160,6 +161,7 @@ public class GamePlayController : MonoBehaviour
 	public void _RestartGamePlay ()
 	{		
 		Application.LoadLevel ("GamePlay");
+		Time.timeScale = 1;
 	}
 
 	public void _DisplayGameOver ()
@@ -169,7 +171,9 @@ public class GamePlayController : MonoBehaviour
 
 	IEnumerator delay ()
 	{
-		yield return new WaitForSeconds (1);
+		
+		yield return new WaitForSeconds (2);
+		Time.timeScale = 0;
 		gameOverText.gameObject.SetActive (true);
 		restartButton.gameObject.SetActive (true);
 	}
